@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brisaise's 18th Birthday Debut</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preload" as="image" href="assets/elegant_debut_party__e4c843c4.jpg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="top-banner" id="top-banner">
+    <div class="top-banner__text">Countdown to Dec 30</div>
+    <div class="top-banner__timer" id="top-banner-timer"></div>
+  </div>
+  <div id="app">
+    <header class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-gradient"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">You are cordially invited to</p>
+        <h1 class="hero-name">Brisaise's</h1>
+        <div class="hero-divider">
+          <span class="line"></span>
+          <span class="hero-sub">18th Birthday</span>
+          <span class="line"></span>
+        </div>
+        <h2 class="hero-title">Debut Celebration</h2>
+        <p class="hero-date" id="hero-date"></p>
+        <div class="hero-tagline">
+          <span>✦</span>
+          <span class="italic">Eighteen candles, endless memories</span>
+          <span>✦</span>
+        </div>
+      </div>
+      <div class="hero-fade"></div>
+    </header>
+
+    <section class="section section-countdown">
+      <div class="container">
+        <div class="card countdown-card">
+          <div class="countdown-grid" id="countdown"></div>
+          <p class="countdown-note">Counting down to the big night</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-card" id="event-details-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow primary">When & Where</p>
+          <h2>Event Details</h2>
+        </div>
+        <div class="grid grid-2 gap">
+          <div class="stack gap">
+            <div class="card info-card">
+              <div class="icon-wrap"><span>📅</span></div>
+              <div>
+                <h3>Date</h3>
+                <p id="event-date"></p>
+              </div>
+            </div>
+            <div class="card info-card">
+              <div class="icon-wrap"><span>⏰</span></div>
+              <div>
+                <h3>Time</h3>
+                <p id="event-time"></p>
+                <p class="muted small">Cocktails begin at 5:30 PM</p>
+              </div>
+            </div>
+            <div class="card info-card">
+              <div class="icon-wrap"><span>📍</span></div>
+              <div>
+                <h3 id="venue-name"></h3>
+                <p id="venue-address" class="muted"></p>
+              </div>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <iframe id="map-embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Event venue location"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="theme-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow primary">What to Wear</p>
+          <h2>Theme & Dress Code</h2>
+        </div>
+        <div class="card center stack gap">
+          <div>
+            <span class="badge">Theme</span>
+            <h3 id="theme" class="serif"></h3>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <span class="badge">Dress Code</span>
+            <h3 id="dress-code" class="serif"></h3>
+            <p id="dress-code-details" class="muted"></p>
+          </div>
+          <div class="warning-chip">
+            <span class="warning-dot">X</span>
+            <span>Red is reserved for the debutante</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-card" id="program-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow primary">Evening Schedule</p>
+          <h2>Program</h2>
+        </div>
+        <div class="timeline" id="program"></div>
+      </div>
+    </section>
+
+    <section class="section section-card" id="traditions-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow primary">18 Treasures, Roses, Candles, Blue Bills</p>
+          <h2>Celebrating Traditions</h2>
+        </div>
+        <div class="grid grid-2 gap" id="traditions"></div>
+      </div>
+    </section>
+
+    <section class="section" id="transport-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow primary">Transportation Tips</p>
+          <h2>Getting There</h2>
+        </div>
+        <div class="grid grid-3 gap" id="transport"></div>
+      </div>
+    </section>
+
+    <section class="section section-card" id="faq-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow primary">Everything You Need to Know</p>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="accordion" id="faq"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container center">
+        <p class="serif footer-name" id="footer-name"></p>
+        <p class="muted">18th Birthday Debut Celebration</p>
+        <div class="footer-tagline">
+          <span>✦</span><span>See you there!</span><span>✦</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html> 
