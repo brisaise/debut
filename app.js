@@ -228,6 +228,61 @@ function renderFooter() {
   document.getElementById("footer-name").textContent = data.event.debutanteName;
 }
 
+function setupRSVP() {
+  const form = document.getElementById("rsvp-form");
+  if (!form) return;
+
+  const details = document.getElementById("rsvp-details");
+  const status = document.getElementById("rsvp-status");
+  const attendanceInputs = form.querySelectorAll("input[name='attending']");
+  const detailFields = details.querySelectorAll("[data-required-yes]");
+
+  function toggleDetails(isAttending) {
+    const showDetails = isAttending === "yes";
+    details.classList.toggle("hidden", !showDetails);
+    detailFields.forEach(input => { input.required = showDetails; });
+  }
+
+  attendanceInputs.forEach(input => {
+    input.addEventListener("change", (e) => {
+      toggleDetails(e.target.value);
+      status.textContent = "";
+      status.className = "status";
+    });
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const attending = form.attending.value;
+
+    status.className = "status";
+    status.textContent = "";
+
+    if (attending === "yes") {
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const guests = form.guests.value || "1";
+      const dietary = form.dietary.value.trim();
+
+      if (!name || !email) {
+        status.textContent = "Please complete your name and email so we can confirm your seats.";
+        status.classList.add("error");
+        return;
+      }
+
+      status.textContent = `Thank you, ${name}! We've reserved ${guests} seat(s) for you. A confirmation will be sent to ${email}.${dietary ? ` Dietary notes: ${dietary}.` : ""}`;
+      status.classList.add("success");
+    } else if (attending === "no") {
+      toggleDetails("no");
+      status.textContent = "Thanks for letting us know. We'll miss you at the celebration.";
+      status.classList.add("success");
+    } else {
+      status.textContent = "Please select if you are attending.";
+      status.classList.add("error");
+    }
+  });
+}
+
 function renderCountdown() {
   const target = new Date(data.event.eventDate + "T00:00:00");
   const el = document.getElementById("countdown");
@@ -265,6 +320,7 @@ function init() {
   renderFooter();
   renderCountdown();
   renderTopBannerCountdown(); // add this
+  setupRSVP();
 }
 
 document.addEventListener("DOMContentLoaded", init);

@@ -149,6 +149,63 @@
       </div>
     </section>
 
+    <section class="section section-card" id="rsvp-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow primary">RSVP</p>
+          <h2>Will You Celebrate With Us?</h2>
+          <p class="muted">Kindly confirm your attendance so we can prepare your seats.</p>
+        </div>
+        <form class="card rsvp-card" id="rsvp-form">
+          <div class="input-group">
+            <label class="input-label">Will you attend?</label>
+            <div class="radio-group">
+              <label class="radio">
+                <input type="radio" name="attending" value="yes" required />
+                <span>Yes, I'll be there</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="attending" value="no" />
+                <span>Sorry, I can't make it</span>
+              </label>
+            </div>
+          </div>
+
+          <div id="rsvp-details" class="stack gap hidden" aria-live="polite">
+            <div class="form-grid">
+              <div class="input-group">
+                <label class="input-label" for="rsvp-name">Full name</label>
+                <input id="rsvp-name" name="name" type="text" placeholder="Your name" data-required-yes />
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="rsvp-email">Email</label>
+                <input id="rsvp-email" name="email" type="email" placeholder="you@example.com" data-required-yes />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="input-group">
+                <label class="input-label" for="rsvp-guests">Number of guests</label>
+                <input id="rsvp-guests" name="guests" type="number" min="1" max="10" value="1" data-required-yes />
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="rsvp-dietary">Dietary needs</label>
+                <input id="rsvp-dietary" name="dietary" type="text" placeholder="Vegetarian, halal, allergies…" />
+              </div>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="rsvp-notes">Notes</label>
+              <textarea id="rsvp-notes" name="notes" rows="3" placeholder="Anything else you'd like us to know"></textarea>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="button">Submit RSVP</button>
+            <div id="rsvp-status" class="status" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="container center">
         <p class="serif footer-name" id="footer-name"></p>
