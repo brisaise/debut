@@ -92,6 +92,9 @@ const data = {
   ]
 };
 
+// Replace this with your real Formspree form ID, e.g. https://formspree.io/f/abcdwxyz
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/yourFormId";
+
 function renderTopBannerCountdown() {
   const timerEl = document.getElementById("top-banner-timer");
   if (!timerEl) return;
@@ -283,7 +286,41 @@ function setupRSVP() {
     } else {
       status.textContent = "Please select if you are attending.";
       status.classList.add("error");
+      return;
     }
+
+    // Prevent sending if placeholder endpoint is still present
+    if (FORMSPREE_ENDPOINT.includes("yourFormId")) {
+      status.textContent = "Formspree endpoint is not set yet. Replace it with your form ID.";
+      status.classList.add("error");
+      return;
+    }
+
+    const formData = new FormData(form);
+    formData.set("attending", attending);
+
+    status.textContent = "Sending your RSVP…";
+    status.className = "status";
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    }).then(async (resp) => {
+      if (resp.ok) {
+        status.textContent = "RSVP received! Thank you.";
+        status.classList.add("success");
+        form.reset();
+        toggleDetails("no");
+      } else {
+        const msg = (await resp.json().catch(() => ({}))).errors?.[0]?.message;
+        status.textContent = msg || "There was a problem sending your RSVP. Please try again.";
+        status.classList.add("error");
+      }
+    }).catch(() => {
+      status.textContent = "Network error. Please try again.";
+      status.classList.add("error");
+    });
   });
 }
 
