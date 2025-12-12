@@ -276,6 +276,10 @@ function setupRSVP() {
       toggleDetails("no");
       status.textContent = "Thanks for letting us know. We'll miss you at the celebration.";
       status.classList.add("success");
+    } else if (attending === "unsure") {
+      toggleDetails("no");
+      status.textContent = "No worries—marking you as tentative. Please update us when you can.";
+      status.classList.add("success");
     } else {
       status.textContent = "Please select if you are attending.";
       status.classList.add("error");
