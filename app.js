@@ -262,10 +262,10 @@ function setupRSVP() {
     status.textContent = "";
 
     const name = form.name.value.trim();
-    const email = form.email.value.trim();
+    const contact = form.contact.value.trim();
 
-    if (!name || !email) {
-      status.textContent = "Please share your name and email so we can note your RSVP.";
+    if (!name || !contact) {
+      status.textContent = "Please share your name and contact info so we can note your RSVP.";
       status.classList.add("error");
       return;
     }
@@ -280,7 +280,7 @@ function setupRSVP() {
         return;
       }
 
-      status.textContent = `Thank you, ${name}! We've reserved ${guests} seat(s) for you. A confirmation will be sent to ${email}.${dietary ? ` Dietary notes: ${dietary}.` : ""}`;
+      status.textContent = `Thank you, ${name}! We've reserved ${guests} seat(s) for you. We'll follow up via ${contact}.${dietary ? ` Dietary notes: ${dietary}.` : ""}`;
       status.classList.add("success");
     } else if (attending === "no") {
       toggleDetails("no");
