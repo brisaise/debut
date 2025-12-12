@@ -93,7 +93,7 @@ const data = {
 };
 
 // Replace this with your real Formspree form ID, e.g. https://formspree.io/f/abcdwxyz
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/yourFormId";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrbnrbkv";
 
 function renderTopBannerCountdown() {
   const timerEl = document.getElementById("top-banner-timer");
@@ -261,14 +261,21 @@ function setupRSVP() {
     status.className = "status";
     status.textContent = "";
 
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+
+    if (!name || !email) {
+      status.textContent = "Please share your name and email so we can note your RSVP.";
+      status.classList.add("error");
+      return;
+    }
+
     if (attending === "yes") {
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
       const guests = form.guests.value || "1";
       const dietary = form.dietary.value.trim();
 
-      if (!name || !email) {
-        status.textContent = "Please complete your name and email so we can confirm your seats.";
+      if (!guests || Number(guests) < 1) {
+        status.textContent = "Please tell us how many are coming so we can reserve seats.";
         status.classList.add("error");
         return;
       }
@@ -277,11 +284,11 @@ function setupRSVP() {
       status.classList.add("success");
     } else if (attending === "no") {
       toggleDetails("no");
-      status.textContent = "Thanks for letting us know. We'll miss you at the celebration.";
+      status.textContent = `Thanks, ${name}. We'll miss you at the celebration.`;
       status.classList.add("success");
     } else if (attending === "unsure") {
       toggleDetails("no");
-      status.textContent = "No worries—marking you as tentative. Please update us when you can.";
+      status.textContent = `Thanks, ${name}. Marking you as tentative—please update us when you can.`;
       status.classList.add("success");
     } else {
       status.textContent = "Please select if you are attending.";

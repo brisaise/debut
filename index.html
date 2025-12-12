@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brisaise's 18th Birthday Debut</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" href="assets/B-icon.png" />
   <link rel="preload" as="image" href="assets/elegant_debut_party__e4c843c4.jpg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -176,17 +176,18 @@
             </div>
           </div>
 
-          <div id="rsvp-details" class="stack gap hidden" aria-live="polite">
-            <div class="form-grid">
-              <div class="input-group">
-                <label class="input-label" for="rsvp-name">Full name</label>
-                <input id="rsvp-name" name="name" type="text" placeholder="Your name" data-required-yes />
-              </div>
-              <div class="input-group">
-                <label class="input-label" for="rsvp-email">Email</label>
-                <input id="rsvp-email" name="email" type="email" placeholder="you@example.com" data-required-yes />
-              </div>
+          <div class="form-grid">
+            <div class="input-group">
+              <label class="input-label" for="rsvp-name">Full name</label>
+              <input id="rsvp-name" name="name" type="text" placeholder="Your name" required />
             </div>
+            <div class="input-group">
+              <label class="input-label" for="rsvp-email">Email</label>
+              <input id="rsvp-email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div id="rsvp-details" class="stack gap hidden" aria-live="polite">
             <div class="form-grid">
               <div class="input-group">
                 <label class="input-label" for="rsvp-guests">Number of guests</label>
