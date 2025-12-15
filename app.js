@@ -32,7 +32,7 @@ const data = {
       { id: 18, name: "Mother Rosario", role: "Unconditional Love" }
     ],
     roses: [
-      { id: 1, name: "Father Ricardo" }, { id: 2, name: "Brother Gabriel" },
+      { id: 1, name: "Ronaldo Tongco" }, { id: 2, name: "Brother Gabriel" },
       { id: 3, name: "Grandfather Jose" }, { id: 4, name: "Uncle Roberto" },
       { id: 5, name: "Uncle Carlos" }, { id: 6, name: "Cousin Miguel" },
       { id: 7, name: "Godfather Antonio" }, { id: 8, name: "Family Friend Marco" },
