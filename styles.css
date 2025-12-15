@@ -42,7 +42,7 @@ img { max-width:100%; display:block; }
 .hero { position:relative; min-height:80vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
 .hero-bg { position:absolute; inset:0; background:url("assets/background.jpg") center/cover no-repeat; transform:scale(1.02); }
 .hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.65), rgba(0,0,0,0.8)); }
-.hero-gradient { position:absolute; inset:0; background:linear-gradient(90deg, rgba(216,180,254,0.18), transparent); }
+.hero-gradient { position:absolute; inset:0; background:transparent; }
 .hero-content { position:relative; text-align:center; display:grid; gap:18px; }
 .hero-name { font-family:"Playfair Display", Georgia, serif; font-size: clamp(40px, 6vw, 80px); margin:0; }
 .hero-sub { font-family:"Playfair Display", Georgia, serif; font-size: clamp(22px, 3vw, 34px); color:#fff; }
