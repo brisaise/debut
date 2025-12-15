@@ -90,21 +90,23 @@
           <p class="eyebrow primary">What to Wear</p>
           <h2>Theme & Dress Code</h2>
         </div>
-        <img src="assets/theme.jpg" alt="Theme & Dress Code" class="section-image" />
-        <div class="card center stack gap">
-          <div>
-            <span class="badge">Theme</span>
-            <h3 id="theme" class="serif"></h3>
-          </div>
-          <div class="divider"></div>
-          <div>
-            <span class="badge">Dress Code</span>
-            <h3 id="dress-code" class="serif"></h3>
-            <p id="dress-code-details" class="muted"></p>
-          </div>
-          <div class="warning-chip">
-            <span class="warning-dot">X</span>
-            <span>Red is reserved for the debutante</span>
+        <div class="section-content-with-image">
+          <img src="assets/theme.jpg" alt="Theme & Dress Code" class="section-image" />
+          <div class="card center stack gap">
+            <div>
+              <span class="badge">Theme</span>
+              <h3 id="theme" class="serif"></h3>
+            </div>
+            <div class="divider"></div>
+            <div>
+              <span class="badge">Dress Code</span>
+              <h3 id="dress-code" class="serif"></h3>
+              <p id="dress-code-details" class="muted"></p>
+            </div>
+            <div class="warning-chip">
+              <span class="warning-dot">X</span>
+              <span>Red is reserved for the debutante</span>
+            </div>
           </div>
         </div>
       </div>
@@ -126,8 +128,10 @@
           <p class="eyebrow primary">18 Treasures, Roses, Candles, Blue Bills</p>
           <h2>Celebrating Traditions</h2>
         </div>
-        <img src="assets/traditions.jpg" alt="Celebrating Traditions" class="section-image" />
-        <div class="grid grid-2 gap" id="traditions"></div>
+        <div class="section-content-with-image">
+          <img src="assets/traditions.jpg" alt="Celebrating Traditions" class="section-image" />
+          <div class="grid grid-2 gap" id="traditions"></div>
+        </div>
       </div>
     </section>
 
@@ -137,8 +141,10 @@
           <p class="eyebrow primary">Transportation Tips</p>
           <h2>Getting There</h2>
         </div>
-        <img src="assets/transpo.jpg" alt="Getting There" class="section-image" />
-        <div class="grid grid-3 gap" id="transport"></div>
+        <div class="section-content-with-image">
+          <img src="assets/transpo.jpg" alt="Getting There" class="section-image" />
+          <div class="grid grid-3 gap" id="transport"></div>
+        </div>
       </div>
     </section>
 
@@ -148,8 +154,10 @@
           <p class="eyebrow primary">Everything You Need to Know</p>
           <h2>Frequently Asked Questions</h2>
         </div>
-        <img src="assets/faq.jpg" alt="Frequently Asked Questions" class="section-image" />
-        <div class="accordion" id="faq"></div>
+        <div class="section-content-with-image">
+          <img src="assets/faq.jpg" alt="Frequently Asked Questions" class="section-image" />
+          <div class="accordion" id="faq"></div>
+        </div>
       </div>
     </section>
 
@@ -160,8 +168,9 @@
           <h2>Will You Celebrate With Us?</h2>
           <p class="muted">Kindly confirm your attendance so we can prepare your seats.</p>
         </div>
-        <img src="assets/rsvp.jpg" alt="RSVP" class="section-image" />
-        <form class="card rsvp-card" id="rsvp-form" action="https://formspree.io/f/xrbnrbkv" method="POST">
+        <div class="section-content-with-image">
+          <img src="assets/rsvp.jpg" alt="RSVP" class="section-image" />
+          <form class="card rsvp-card" id="rsvp-form" action="https://formspree.io/f/xrbnrbkv" method="POST">
           <input type="hidden" name="_subject" value="RSVP Response for Brisaise's Debut" />
           <div class="input-group">
             <label class="input-label">Will you attend?</label>
@@ -214,6 +223,7 @@
             <div id="rsvp-status" class="status" role="status" aria-live="polite"></div>
           </div>
         </form>
+        </div>
       </div>
     </section>
 

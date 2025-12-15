@@ -36,7 +36,8 @@
 * { box-sizing: border-box; }
 body { margin:0; background:var(--bg); color:var(--text); }
 img { max-width:100%; display:block; }
-.section-image { width:100%; max-width:500px; margin:24px auto; border-radius: var(--radius); border:1px solid var(--border); box-shadow: var(--shadow); }
+.section-content-with-image { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:24px; align-items:start; margin-top:32px; }
+.section-image { width:100%; height:auto; border-radius: var(--radius); border:1px solid var(--border); box-shadow: var(--shadow); object-fit:cover; }
 .container { width: min(1100px, 92vw); margin: 0 auto; }
 .section { padding: 80px 0; }
 .section-card { background: #0c0f16; }
