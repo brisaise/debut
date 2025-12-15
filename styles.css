@@ -36,6 +36,7 @@
 * { box-sizing: border-box; }
 body { margin:0; background:var(--bg); color:var(--text); }
 img { max-width:100%; display:block; }
+.section-image { width:100%; max-width:800px; margin:32px auto; border-radius: var(--radius); border:1px solid var(--border); box-shadow: var(--shadow); }
 .container { width: min(1100px, 92vw); margin: 0 auto; }
 .section { padding: 80px 0; }
 .section-card { background: #0c0f16; }
