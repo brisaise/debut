@@ -36,8 +36,22 @@
 * { box-sizing: border-box; }
 body { margin:0; background:var(--bg); color:var(--text); }
 img { max-width:100%; display:block; }
-.section-content-with-image { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:24px; align-items:start; margin-top:32px; }
-.section-image { width:100%; height:auto; border-radius: var(--radius); border:1px solid var(--border); box-shadow: var(--shadow); object-fit:cover; }
+.section-content-with-image { display:grid; grid-template-columns: auto 1fr; gap:24px; align-items:start; margin-top:32px; }
+.section-image { max-width:100%; height:auto; border-radius: var(--radius); border:1px solid var(--border); box-shadow: var(--shadow); object-fit:cover; }
+#theme-section .section-image { width:260px; }
+.traditions-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; margin-top:32px; }
+.traditions-grid .tradition-image { width:100%; height:100%; min-height:400px; border-radius: var(--radius); border:1px solid var(--border); box-shadow: var(--shadow); object-fit:cover; }
+@media (max-width: 900px) {
+  .traditions-grid { grid-template-columns: 1fr; }
+}
+#transport-section .section-image { width:280px; }
+#faq-section .section-image { width:265px; }
+#rsvp-section .section-content-with-image { align-items:stretch; }
+#rsvp-section .section-image { width:400px; height:100%; object-fit:cover; }
+@media (max-width: 768px) {
+  .section-content-with-image { grid-template-columns: 1fr; }
+  .section-image { width:100%; max-width:400px; margin:0 auto; }
+}
 .container { width: min(1100px, 92vw); margin: 0 auto; }
 .section { padding: 80px 0; }
 .section-card { background: #0c0f16; }
@@ -137,15 +151,4 @@ img { max-width:100%; display:block; }
   .timeline-item:nth-child(even) { margin-right:auto; padding-right:18px; text-align:right; }
   .timeline-item:nth-child(odd) .timeline-bullet { left:auto; right:-9px; }
   .timeline-item:nth-child(even) .timeline-bullet { left:-9px; }
-}
-#traditions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-@media (max-width: 700px) {
-  #traditions {
-    grid-template-columns: 1fr;
-  }
 }

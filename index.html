@@ -66,7 +66,6 @@
               <div>
                 <h3>Time</h3>
                 <p id="event-time"></p>
-                <p class="muted small">Cocktails begin at 5:30 PM</p>
               </div>
             </div>
             <div class="card info-card">
@@ -128,10 +127,7 @@
           <p class="eyebrow primary">18 Treasures, Roses, Candles, Blue Bills</p>
           <h2>Celebrating Traditions</h2>
         </div>
-        <div class="section-content-with-image">
-          <img src="assets/traditions.jpg" alt="Celebrating Traditions" class="section-image" />
-          <div class="grid grid-2 gap" id="traditions"></div>
-        </div>
+        <div class="traditions-grid" id="traditions"></div>
       </div>
     </section>
 
@@ -202,16 +198,6 @@
           </div>
 
           <div id="rsvp-details" class="stack gap hidden" aria-live="polite">
-            <div class="form-grid">
-              <div class="input-group">
-                <label class="input-label" for="rsvp-guests">Number of guests</label>
-                <input id="rsvp-guests" name="guests" type="number" min="1" max="10" value="1" data-required-yes />
-              </div>
-              <div class="input-group">
-                <label class="input-label" for="rsvp-dietary">Dietary needs</label>
-                <input id="rsvp-dietary" name="dietary" type="text" placeholder="Vegetarian, halal, allergies…" />
-              </div>
-            </div>
             <div class="input-group">
               <label class="input-label" for="rsvp-notes">Notes</label>
               <textarea id="rsvp-notes" name="notes" rows="3" placeholder="Anything else you'd like us to know"></textarea>
