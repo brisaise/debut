@@ -58,35 +58,35 @@ const data = {
   },
   traditions: {
     roses: [
-      { id: 1, name: "Daddy Ronaldo Tongco" }, { id: 2, name: "Lolo Fernando Tongco" },
-      { id: 3, name: "Kuya John Jose De Guzman" }, { id: 4, name: "Kuya Christian Jose De Guzman" },
-      { id: 5, name: "Kuya Jose Miguel De Guzman" }, { id: 6, name: "Rodde Maxel De Jesus" },
-      { id: 7, name: "Tito Carlo Sambilay" }, { id: 8, name: "Tito Crizaldo Sambilay" },
-      { id: 9, name: "Tito Celerino Sambilay" }, { id: 10, name: "Keith Aldridge Santos" },
-      { id: 11, name: "Daniel Patrick Santos" }, { id: 12, name: "Albertson Mendiola" },
-      { id: 13, name: "Kuya Markuz Ethan Gungon" }, { id: 14, name: "Kuya Rheyan Miguel Prim" },
-      { id: 15, name: "Kuya Allan Christopher Malig"}, { id: 16, name: "Sir Christian Cedrick Publico" },
+      { id: 1, name: "Papa Ronaldo Tongco" }, { id: 2, name: "Lolo Fernando Tongco" },
+      { id: 3, name: "Tito Carlo Sambilay" }, { id: 4, name: "Tito Crizaldo Sambilay" }, 
+      { id: 5, name: "Tito Celerino Sambilay Jr." }, { id: 6, name: "Kuya John Jose De Guzman" }, 
+      { id: 7, name: "Kuya Christian Jose De Guzman" }, { id: 8, name: "Kuya Jose Miguel De Guzman" }, 
+      { id: 9, name: "Rodde Maxel De Jesus" }, { id: 10, name: "Kuya Allan Christopher Malig"},
+      { id: 11, name: "Kuya Rheyan Miguel Prim" }, { id: 12, name: "Kuya Markuz Ethan Gungon" },
+      { id: 13, name: "Sir Christian Cedrick Publico" }, { id: 14, name: "Albertson Mendiola" },
+      { id: 15, name: "Keith Aldridge Santos" }, { id: 16, name: "Daniel Patrick Santos" }, 
       { id: 17, name: "Czelraine Tongco" }, { id: 18, name: "Kuya Amiel Tongco" }
     ],
     candles: [
       { id: 1, name: "Tita Abigail Neones", role: "Moral Support" },
       { id: 2, name: "Tita Marianne Mendoza", role: "Strength" },
-      { id: 3, name: "Dr. May Gungon", role: "Grace" },
-      { id: 4, name: "Ma'am Christine Sarmiento", role: "Courage" },
-      { id: 5, name: "Tita Emerita Balajo Santos", role: "Kindness" },
-      { id: 6, name: "Tita Amparo Malig", role: "Perseverance" },
-      { id: 7, name: "Tita Rocelyn De Jesus", role: "Joy" },
-      { id: 8, name: "Tita Cecilia De Guzman", role: "Faith" },
-      { id: 9, name: "Tita Lyn Haro", role: "Love" },
-      { id: 10, name: "Tita Michelle De Guzman", role: "Honor" },
-      { id: 11, name: "Nanay Edith Buenaventura", role: "Hope" },
-      { id: 12, name: "Ate Ruby Aquino", role: "Patience" },
-      { id: 13, name: "Ate Cesareen Sadile", role: "Knowledge" },
-      { id: 14, name: "Tita Julie Ann Garcia", role: "Guidance" },
+      { id: 3, name: "Tita Amparo Malig", role: "Perseverance" },
+      { id: 4, name: "Tita Michelle De Guzman", role: "Honor" },
+      { id: 5, name: "Tita Julie Ann Garcia", role: "Guidance" },
+      { id: 6, name: "Dra. May Gungon", role: "Grace" },
+      { id: 7, name: "Ma'am Christine Sarmiento", role: "Courage" },
+      { id: 8, name: "Tita Emerita Balajo Santos", role: "Kindness" },
+      { id: 9, name: "Tita Rocelyn De Jesus", role: "Joy" },
+      { id: 10, name: "Tita Cecilia De Guzman", role: "Faith" },
+      { id: 11, name: "Tita Norlyn Haro", role: "Love" },
+      { id: 12, name: "Tita Editha Buenaventura", role: "Hope" },
+      { id: 13, name: "Ate Ruby Aquino", role: "Patience" },
+      { id: 14, name: "Ate Cesareen Sadile", role: "Knowledge" },
       { id: 15, name: "Miss Kristine Jamie Austria", role: "Generosity" },
       { id: 16, name: "Ma'am Ma. Kathleen Paraguya", role: "Spirituality" },
       { id: 17, name: "Ma'am Nadine Mendoza-Baksal", role: "Compassion" },
-      { id: 18, name: "Mommy Jobelle Tongco", role: "Unconditional Love" }
+      { id: 18, name: "Mama Jobelle Tongco", role: "Unconditional Love" }
     ],
     bills: [
       { id: 1, name: "Tito Rodelio De Jesus" }, { id: 2, name: "Tito Joel De Guzman" },
@@ -95,20 +95,20 @@ const data = {
       { id: 7, name: "Ninong Warren Basilio" }, { id: 8, name: "Ninong Alvin Tongco" },
       { id: 9, name: "Ninang Rowena Tongco" }, { id: 10, name: "Tito Dojie Mendoza" },
       { id: 11, name: "Tito Marlone De Guzman" }, { id: 12, name: "Tito Froilan Garcia" },
-      { id: 13, name: "Tito Allan Malig" }, { id: 14, name: "Tita Patricia Collin Basay" },
-      { id: 15, name: "Tito Anthony Roberto" }, { id: 16, name: "Mommy Jobelle Tongco" },
-      { id: 17, name: "Kuya Amiel Tongco" }, { id: 18, name: "Daddy Ronaldo Tongco" }
+      { id: 13, name: "Tito Allan Malig" }, { id: 14, name: "Tita Patricia Collins Basay" },
+      { id: 15, name: "Tito Anthony Roberto" }, { id: 16, name: "Kuya Amiel Tongco" },
+      { id: 17, name: "Mama Jobelle Tongco" }, { id: 18, name: "Papa Ronaldo Tongco" }
     ],
     treasures: [
-      { id: 1, name: "Emily Christine Santos" }, { id: 2, name: "Ruiz Franco Gungon" },
-      { id: 3, name: "Jouana Ane Martina Sabino" }, { id: 4, name: "Cylix Matabia" },
-      { id: 5, name: "Wynona Ivee Mendoza" }, { id: 6, name: "Althea Malig" },
-      { id: 7, name: "Achilla Berniz Darlucio" }, { id: 8, name: "Samantha Nicole Rivera" },
-      { id: 9, name: "Cedie Avelino" }, { id: 10, name: "Phranz Francisco" },
-      { id: 11, name: "Crizlyn Sambilay" }, { id: 12, name: "Khayce Ezra Sambilay" },
-      { id: 13, name: "Renz Peter Sambilay" }, { id: 14, name: "Alvia Maquirang Dela Cruz" },
-      { id: 15, name: "Ethaniele Leo Manaloto" }, { id: 16, name: "Chyno Flores" },
-      { id: 17, name: "Shane Salvador" }, { id: 18, name: "Lalaine Garcia" }
+      { id: 1, name: "Emily Christine Santos" }, { id: 2, name: "Cedie Avelino" },
+      { id: 3, name: "Aliyah Ashlee Caber" }, { id: 4, name: "Phranz Francisco" }, 
+      { id: 5, name: "Ruiz Franco Gungon" }, { id: 6, name: "Shane Salvador" }, 
+      { id: 7, name: "Ethaniele Leo Manaloto" }, { id: 8, name: "Alvia Dela Cruz" }, 
+      { id: 9, name: "Achilla Berniz Darlucio" }, { id: 10, name: "Wynona Ivee Mendoza" }, 
+      { id: 11, name: "Althea Malig" }, { id: 12, name: "Renz Peter Sambilay" }, 
+      { id: 13, name: "Crizlyn Sambilay" }, { id: 14, name: "Khayce Ezra Sambilay" }, 
+      { id: 15, name: "Cylix Nadine Matabia" }, { id: 16, name: "Jouana Ane Martina Sabino" }, 
+      { id: 17, name: "Chyno Mitchell Flores" }, { id: 18, name: "Samantha Nicole Rivera" }
     ]
   },
   faq: [
@@ -121,6 +121,22 @@ const data = {
     { id: 1, mode: "By Public Transport", icon: "🚌", description: "Take a jeepney to Hulong Duhat. From there, ride a tricycle to 'Octa Events Place' or '222 Cafe'. The venue is well-known to most drivers in the area." },
     { id: 2, mode: "By Taxi/Grab", icon: "🚕", description: "Simply input 'OCTA Events Place, 222, Don Basilio Bautista Blvd, Brgy. Dampalit, Malabon City' in your app. " }
   ],
+  giftPreferences: {
+    note: "Your presence is the greatest gift! However, if you'd like to bring something, here are some ideas:",
+    categories: [
+      { id: 1, category: "X-men", icon: "🧬"},
+      { id: 2, category: "Avengers", icon: "💥"},
+      { id: 3, category: "Books", icon: "📚"},
+      { id: 4, category: "Jewelry (gold)", icon: "💍"},
+      { id: 5, category: "Detective Conan", icon: "🔎"},
+      { id: 6, category: "Pride & Prejudice", icon: "💌"},
+      { id: 7, category: "The Little Prince", icon: "👑"},
+      { id: 8, category: "LEGO", icon: "🧱"},
+      { id: 9, category: "Seventeen", icon: "💎"},
+      { id: 10, category: "Kubo (Popmart)", icon: "✨"}
+    ],
+    message: "Please note: Gifts are optional. Your presence and celebration with us is what matters most!"
+  },
   program: [
     { id: 1, title: "Guest Arrival", description: "Guests arrive and are welcomed to the celebration" },
     { id: 2, title: "Grand Entrance", description: "The debutante's grand entrance with her court" },
@@ -261,6 +277,31 @@ function renderTransport() {
     `;
     root.appendChild(card);
   });
+}
+
+function renderGiftPreferences() {
+  const root = document.getElementById("gift-preferences");
+  if (!root) return;
+  
+  const prefs = data.giftPreferences;
+  
+  root.innerHTML = `
+    <div>
+      <p class="muted small">${prefs.note}</p>
+    </div>
+    <div class="gift-categories">
+      ${prefs.categories.map(cat => `
+        <div class="gift-category-item">
+          <div class="gift-icon">${cat.icon}</div>
+            <h4>${cat.category}</h4>
+        </div>
+      `).join("")}
+    </div>
+    <div class="divider"></div>
+    <div>
+      <p class="muted small italic">${prefs.message}</p>
+    </div>
+  `;
 }
 
 function renderFAQ() {
@@ -660,6 +701,7 @@ function init() {
   renderProgram();
   renderTraditions();
   renderTransport();
+  renderGiftPreferences();
   renderFAQ();
   renderFooter();
   renderCountdown();
