@@ -146,7 +146,7 @@ img { max-width:100%; display:block; }
 .status.success { color:#5adea8; }
 .status.error { color:#ff9b9b; }
 .messages-container { display:grid; gap:32px; margin-top:32px; }
-.message-form { background: radial-gradient(circle at 20% 20%, rgba(242,95,92,0.1), transparent 35%), radial-gradient(circle at 80% 40%, rgba(255,255,255,0.06), transparent 40%), var(--card); border:1px solid rgba(242,95,92,0.25); }
+.message-form { background: radial-gradient(circle at 20% 20%, rgba(242,95,92,0.1), transparent 35%), radial-gradient(circle at 80% 40%, rgba(255,255,255,0.06), transparent 40%), var(--card); border:1px solid rgba(242,95,92,0.25); display:grid; gap:18px; }
 .whiteboard { background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border:2px dashed var(--border); border-radius: var(--radius); padding:24px; min-height:400px; }
 .whiteboard-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--border); }
 .whiteboard-header h3 { margin:0; font-family:"Playfair Display", Georgia, serif; font-size:24px; }

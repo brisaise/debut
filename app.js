@@ -30,8 +30,10 @@ if (FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey !== "YOUR_API_KEY") {
     if (!firebase.apps || !firebase.apps.length) {
       firebase.initializeApp(FIREBASE_CONFIG);
     }
+    // Explicitly use the database URL from config
     firebaseDb = firebase.database();
     console.log("Firebase initialized successfully");
+    console.log("Database URL:", FIREBASE_CONFIG.databaseURL);
   } catch (e) {
     console.error("Firebase initialization error:", e);
     console.log("Falling back to localStorage for messages");
