@@ -355,7 +355,7 @@ function setupRSVP() {
   const detailFields = details.querySelectorAll("[data-required-yes]");
 
   function toggleDetails(isAttending) {
-    const showDetails = isAttending === "yes";
+    const showDetails = isAttending === "yes" || isAttending === "no";
     details.classList.toggle("hidden", !showDetails);
     detailFields.forEach(input => { input.required = showDetails; });
   }
@@ -385,8 +385,8 @@ function setupRSVP() {
     }
 
     if (attending === "yes") {
-      const guests = form.guests.value || "1";
-      const dietary = form.dietary.value.trim();
+      const guests = form.guests?.value || "1";
+      const dietary = form.dietary?.value?.trim() || "";
 
       if (!guests || Number(guests) < 1) {
         status.textContent = "Please tell us how many are coming so we can reserve seats.";
@@ -397,12 +397,7 @@ function setupRSVP() {
       status.textContent = `Thank you, ${name}! We've reserved ${guests} seat(s) for you. We'll follow up via ${contact}.${dietary ? ` Dietary notes: ${dietary}.` : ""}`;
       status.classList.add("success");
     } else if (attending === "no") {
-      toggleDetails("no");
       status.textContent = `Thanks, ${name}. We'll miss you at the celebration.`;
-      status.classList.add("success");
-    } else if (attending === "unsure") {
-      toggleDetails("no");
-      status.textContent = `Thanks, ${name}. Marking you as tentative—please update us when you can.`;
       status.classList.add("success");
     } else {
       status.textContent = "Please select if you are attending.";
