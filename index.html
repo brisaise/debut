@@ -7,6 +7,9 @@
   <link rel="icon" type="image/png" href="assets/B-icon.png" />
   <link rel="preload" as="image" href="assets/background.jpg" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 </head>
 <body>
   <div class="top-banner" id="top-banner">
@@ -66,6 +69,7 @@
               <div>
                 <h3>Time</h3>
                 <p id="event-time"></p>
+                <p class="muted small">Venue is open by 4:00 PM onwards</p>
               </div>
             </div>
             <div class="card info-card">
@@ -213,12 +217,57 @@
       </div>
     </section>
 
+    <section class="section section-card" id="messages-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow primary">Share Your Wishes</p>
+          <h2>Leave a Message</h2>
+          <p class="muted">Write a message for Brisaise that everyone can see!</p>
+        </div>
+        <div class="messages-container">
+          <form class="card message-form" id="message-form">
+            <div class="form-grid">
+              <div class="input-group">
+                <label class="input-label" for="message-name">Your Name</label>
+                <input id="message-name" name="name" type="text" placeholder="Enter your name" required />
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="message-email">Your Email (optional)</label>
+                <input id="message-email" name="email" type="email" placeholder="your@email.com" />
+              </div>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="message-text">Your Message</label>
+              <textarea id="message-text" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+            </div>
+            <div class="actions">
+              <button type="submit" class="button">Post Message</button>
+              <div id="message-status" class="status" role="status" aria-live="polite"></div>
+            </div>
+          </form>
+          <div class="whiteboard" id="whiteboard">
+            <div class="whiteboard-header">
+              <h3>Messages for Brisaise</h3>
+              <p class="muted small" id="message-count">0 messages</p>
+            </div>
+            <div class="messages-grid" id="messages-grid">
+              <p class="muted center" id="no-messages">No messages yet. Be the first to leave one!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="container center">
         <p class="serif footer-name" id="footer-name"></p>
         <p class="muted">18th Birthday Debut Celebration</p>
         <div class="footer-tagline">
           <span>✦</span><span>See you there!</span><span>✦</span>
+        </div>
+        <div class="footer-credits">
+          <p>Special Thanks to:</p>
+          <div id="credits-names"></div>
         </div>
       </div>
     </footer>

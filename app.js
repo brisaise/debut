@@ -1,3 +1,38 @@
+// Firebase Configuration
+// ============================================
+// SETUP INSTRUCTIONS:
+// 1. Go to https://console.firebase.google.com/
+// 2. Create a new project (or use existing)
+// 3. Go to Project Settings (gear icon) > Your apps > Add app (Web)
+// 4. Copy the Firebase SDK configuration values below
+// 5. Enable Realtime Database:
+//    - Go to Realtime Database in left menu
+//    - Click "Create Database"
+//    - Choose your region
+//    - Start in "Test mode" (for development) or set up security rules
+// 6. Update the FIREBASE_CONFIG object below with your values
+// ============================================
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyBhGL8yBDuJxXBcPW8RN_dp_Bu-bJg0V1w",
+  authDomain: "brisaise-debut.firebaseapp.com",
+  projectId: "brisaise-debut",
+  storageBucket: "brisaise-debut.firebasestorage.app",
+  messagingSenderId: "626320990868",
+  appId: "1:626320990868:web:9a86ed16d0dc714b6aca81",
+  measurementId: "G-3ZQP0XBPHB"
+};
+
+// Initialize Firebase (only if config is provided)
+let firebaseDb = null;
+if (FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey !== "YOUR_API_KEY") {
+  try {
+    firebase.initializeApp(FIREBASE_CONFIG);
+    firebaseDb = firebase.database();
+  } catch (e) {
+    console.error("Firebase initialization error:", e);
+  }
+}
+
 const data = {
   event: {
     debutanteName: "Brisaise",
@@ -8,25 +43,27 @@ const data = {
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3859.4872354643003!2d120.9431284!3d14.6850165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b54f44e20321%3A0x1e740390a7ec51c6!2sOCTA%20Events%20Place!5e0!3m2!1sen!2sph!4v1765374660191!5m2!1sen!2sph",
     theme: "An Elegant Evening",
     dressCode: "Formal / Semi-Formal Attire",
-    dressCodeDetails: "Ladies are encouraged to wear elegant gowns or cocktail dresses. Gentlemen should wear suits or barong tagalog. You may wear any color of your choice, EXCEPT RED. Red is reserved exclusively for the debutante."
+    dressCodeDetails: "Ladies are encouraged to wear elegant gowns or any comfortable dresses. For gentlemen, long sleeves or polo shirts are perfectly appropriate. You may wear any color of your choice, EXCEPT RED. Red is reserved exclusively for the debutante.",
+    photographer: "Marq Agassi De Guzman",
+    makeupArtist: "Precious Ane Hamionie Sabino"
   },
   traditions: {
     roses: [
-      { id: 1, name: "Mr.Ronaldo Tongco" }, { id: 2, name: "Fernando Tongco" },
-      { id: 3, name: "John Jose De Guzman" }, { id: 4, name: "Christian Jose De Guzman" },
-      { id: 5, name: "Jose Miguel De Guzman" }, { id: 6, name: "Rodde Maxel De Jesus" },
+      { id: 1, name: "Daddy Ronaldo Tongco" }, { id: 2, name: "Lolo Fernando Tongco" },
+      { id: 3, name: "Kuya John Jose De Guzman" }, { id: 4, name: "Kuya Christian Jose De Guzman" },
+      { id: 5, name: "Kuya Jose Miguel De Guzman" }, { id: 6, name: "Rodde Maxel De Jesus" },
       { id: 7, name: "Tito Carlo Sambilay" }, { id: 8, name: "Tito Crizaldo Sambilay" },
       { id: 9, name: "Tito Celerino Sambilay" }, { id: 10, name: "Keith Aldridge Santos" },
       { id: 11, name: "Daniel Patrick Santos" }, { id: 12, name: "Albertson Mendiola" },
-      { id: 13, name: "Markuz Ethan Gungon" }, { id: 14, name: "Rheyan Miguel Prim" },
-      { id: 15, name: "Allan Christopher Malig"}, { id: 16, name: "Sir Christian Cedrick Publico" },
-      { id: 17, name: "Czelraine Tongco" }, { id: 18, name: "Amiel Tongco" }
+      { id: 13, name: "Kuya Markuz Ethan Gungon" }, { id: 14, name: "Kuya Rheyan Miguel Prim" },
+      { id: 15, name: "Kuya Allan Christopher Malig"}, { id: 16, name: "Sir Christian Cedrick Publico" },
+      { id: 17, name: "Czelraine Tongco" }, { id: 18, name: "Kuya Amiel Tongco" }
     ],
     candles: [
       { id: 1, name: "Tita Abigail Neones", role: "Moral Support" },
       { id: 2, name: "Tita Marianne Mendoza", role: "Strength" },
       { id: 3, name: "Dr. May Gungon", role: "Grace" },
-      { id: 4, name: "Ma'am Tin Sarmiento", role: "Courage" },
+      { id: 4, name: "Ma'am Christine Sarmiento", role: "Courage" },
       { id: 5, name: "Tita Emerita Balajo Santos", role: "Kindness" },
       { id: 6, name: "Tita Amparo Malig", role: "Perseverance" },
       { id: 7, name: "Tita Rocelyn De Jesus", role: "Joy" },
@@ -40,57 +77,57 @@ const data = {
       { id: 15, name: "Miss Kristine Jamie Austria", role: "Generosity" },
       { id: 16, name: "Ma'am Ma. Kathleen Paraguya", role: "Spirituality" },
       { id: 17, name: "Ma'am Nadine Mendoza-Baksal", role: "Compassion" },
-      { id: 18, name: "Jobelle Tongco", role: "Unconditional Love" }
+      { id: 18, name: "Mommy Jobelle Tongco", role: "Unconditional Love" }
     ],
     bills: [
       { id: 1, name: "Tito Rodelio De Jesus" }, { id: 2, name: "Tito Joel De Guzman" },
-      { id: 3, name: "Tita Ronavie Sambilay" }, { id: 4, name: "Family Friend Tito John" },
-      { id: 5, name: "Cousin Maria" }, { id: 6, name: "Cousin James" },
-      { id: 7, name: "Neighbor Tita Susan" }, { id: 8, name: "Neighbor Tito Peter" },
-      { id: 9, name: "Church Member Ate Linda" }, { id: 10, name: "Church Member Tito Frank" },
-      { id: 11, name: "Parent's Friend Tita Rose" }, { id: 12, name: "Parent's Friend Tito Tom" },
-      { id: 13, name: "Family Mentor Tita Emily" }, { id: 14, name: "Family Mentor Tito Steve" },
-      { id: 15, name: "Community Leader Tita Jane" }, { id: 16, name: "Community Leader Tito Bob" },
-      { id: 17, name: "Honored Guest Tita Mary" }, { id: 18, name: "Honored Guest Tito Paul" }
+      { id: 3, name: "Tita Ronavie Sambilay" }, { id: 4, name: "Tita Ladylyn Sambilay" },
+      { id: 5, name: "Tita Maricris Kaye Sambilay" }, { id: 6, name: "Lolo Fernando Tongco"},
+      { id: 7, name: "Ninong Warren Basilio" }, { id: 8, name: "Ninong Alvin Tongco" },
+      { id: 9, name: "Ninang Rowena Tongco" }, { id: 10, name: "Tito Dojie Mendoza" },
+      { id: 11, name: "Tito Marlone De Guzman" }, { id: 12, name: "Tito Froilan Garcia" },
+      { id: 13, name: "Tito Allan Malig" }, { id: 14, name: "Tita Patricia Collin Basay" },
+      { id: 15, name: "Tito Anthony Roberto" }, { id: 16, name: "Mommy Jobelle Tongco" },
+      { id: 17, name: "Kuya Amiel Tongco" }, { id: 18, name: "Daddy Ronaldo Tongco" }
     ],
     treasures: [
-      { id: 1, name: "Mother Rosario" }, { id: 2, name: "Sister Sofia" },
-      { id: 3, name: "Grandmother Elena" }, { id: 4, name: "Aunt Patricia" },
-      { id: 5, name: "Aunt Maria" }, { id: 6, name: "Cousin Angela" },
-      { id: 7, name: "Godmother Carmen" }, { id: 8, name: "Best Friend Sarah" },
-      { id: 9, name: "Best Friend Emma" }, { id: 10, name: "Childhood Friend Mia" },
-      { id: 11, name: "Classmate Nicole" }, { id: 12, name: "Classmate Ashley" },
-      { id: 13, name: "Church Friend Grace" }, { id: 14, name: "Teammate Julia" },
-      { id: 15, name: "Neighbor Ate Joy" }, { id: 16, name: "Cousin Isabel" },
-      { id: 17, name: "Mentor Teacher Ms. Reyes" }, { id: 18, name: "Special Friend Olivia" }
+      { id: 1, name: "Emily Christine Santos" }, { id: 2, name: "Ruiz Franco Gungon" },
+      { id: 3, name: "Jouana Ane Martina Sabino" }, { id: 4, name: "Cylix Matabia" },
+      { id: 5, name: "Wynona Ivee Mendoza" }, { id: 6, name: "Althea Malig" },
+      { id: 7, name: "Achilla Berniz Darlucio" }, { id: 8, name: "Samantha Nicole Rivera" },
+      { id: 9, name: "Cedie Avelino" }, { id: 10, name: "Phranz Francisco" },
+      { id: 11, name: "Crizlyn Sambilay" }, { id: 12, name: "Khayce Ezra Sambilay" },
+      { id: 13, name: "Renz Peter Sambilay" }, { id: 14, name: "Alvia Maquirang Dela Cruz" },
+      { id: 15, name: "Ethaniele Leo Manaloto" }, { id: 16, name: "Chyno Flores" },
+      { id: 17, name: "Shane Salvador" }, { id: 18, name: "Lalaine Garcia" }
     ]
   },
   faq: [
     { id: 1, question: "What time should I arrive?", answer: "Please arrive 30 minutes before the program. Early arrival is appreciated to ensure you don't miss any of the special moments." },
-    { id: 2, question: "Is there a parking area at the venue?", answer: "Yes, the Grand Ballroom has a spacious parking lot that can accommodate up to 200 vehicles. Valet parking is also available for your convenience at no additional charge." },
-    { id: 3, question: "Is photography allowed during the event?", answer: "We have hired a professional photographer and videographer for the event. Personal photos are welcome during the reception, but we kindly ask that you refrain from using flash photography during the ceremonies." },
-    { id: 4, question: "How long will the event last?", answer: "The event is expected to conclude around 9:00 PM. The program includes cocktails, dinner, traditional ceremonies, and dancing." }
+    { id: 2, question: "Is there a parking area at the venue?", answer: "Yes, the venue has parking available. While space is limited, we expect there to be enough parking for all guests." },
+    { id: 3, question: "Is photography allowed during the event?", answer: "We'll have a professional photographer and videographer capturing the event. Feel free to take personal photos during the reception, but please no flash photography during the ceremonies." },
+    { id: 4, question: "How long will the event last?", answer: "The event is expected to conclude around 9:00 PM. The program includes the grand entrance, traditional ceremonies (18 roses, candles, blue bills, and treasures), dinner, and plenty of time for photos and mingling." }
   ],
   transport: [
     { id: 1, mode: "By Public Transport", icon: "🚌", description: "Take a jeepney to Hulong Duhat. From there, ride a tricycle to 'Octa Events Place' or '222 Cafe'. The venue is well-known to most drivers in the area." },
     { id: 2, mode: "By Taxi/Grab", icon: "🚕", description: "Simply input 'OCTA Events Place, 222, Don Basilio Bautista Blvd, Brgy. Dampalit, Malabon City' in your app. " }
   ],
   program: [
-    { id: 1, title: "Guest Arrival & Cocktails", description: "Welcome drinks and registration" },
+    { id: 1, title: "Guest Arrival", description: "Guests arrive and are welcomed to the celebration" },
     { id: 2, title: "Grand Entrance", description: "The debutante's grand entrance with her court" },
-    { id: 3, title: "Opening Prayer and Welcoming Remarks", description: ""},
-    { id: 4, title: "18 Roses", description: "Traditional father-daughter dance and 18 roses dance" },
-    { id: 5, title: "18 Candles", description: "Wishes and messages from 18 special women" },
-    { id: 6, title: "Dinner Service", description: "Filipino-Western fusion dinner buffet" },
-    { id: 7, title: "Open Photobooth", description: ""},
-    { id: 8, title: "18 Blue Bills", description: ""},
-    { id: 9, title: "18 Treasures", description: "Gift-giving ceremony with symbolic treasures" },
-    { id: 10, title: "Message & Fast Talk", description: ""},
-    { id: 11, title: "Thank You & Send-off", description: "Final thanks and farewell to guests" }
+    { id: 3, title: "Opening Prayer", description: "Blessing for the celebration and the debutante by her Lola Nanay Mina" },
+    { id: 4, title: "Welcoming Remarks", description: "Welcome speech by the parents and the debutante" },
+    { id: 5, title: "18 Roses", description: "Traditional father-daughter dance and 18 roses dance" },
+    { id: 6, title: "18 Candles", description: "Wishes and messages from 18 special women" },
+    { id: 7, title: "Dinner Service", description: "Filipino-Western fusion dinner buffet" },
+    { id: 8, title: "Open Photobooth", description: "Guests can take memorable photos with fun props and backdrops" },
+    { id: 9, title: "18 Blue Bills", description: "18 special people offer financial gifts and advice for the debutante's future" },
+    { id: 10, title: "18 Treasures", description: "Gift-giving ceremony with symbolic treasures" },
+    { id: 11, title: "Message & Fast Talk", description: "Heartfelt speech by the debutante and fun quick-fire Q&A segment" },
+    { id: 12, title: "Thank You & Send-off", description: "Final thanks and farewell to guests" }
   ]
 };
 
-// Replace this with your real Formspree form ID, e.g. https://formspree.io/f/abcdwxyz
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrbnrbkv";
 
 function renderTopBannerCountdown() {
@@ -240,6 +277,23 @@ function renderFAQ() {
 
 function renderFooter() {
   document.getElementById("footer-name").textContent = data.event.debutanteName;
+  const creditsNamesEl = document.getElementById("credits-names");
+  const creditsSection = document.querySelector(".footer-credits");
+  
+  const names = [];
+  if (data.event.photographer) {
+    names.push(`📷 ${data.event.photographer}`);
+  }
+  if (data.event.makeupArtist) {
+    names.push(`💄 ${data.event.makeupArtist}`);
+  }
+  
+  if (creditsNamesEl && names.length > 0) {
+    // Format each name on a new line
+    creditsNamesEl.innerHTML = names.join('<br>');
+  } else if (creditsSection) {
+    creditsSection.style.display = "none";
+  }
 }
 
 function setupRSVP() {
@@ -368,6 +422,220 @@ function renderCountdown() {
   setInterval(update, 1000);
 }
 
+// Messages storage - uses Firebase if available, falls back to localStorage
+let messagesCache = [];
+let messagesListener = null;
+
+function getMessages() {
+  return messagesCache;
+}
+
+async function loadMessagesFromFirebase() {
+  if (!firebaseDb) {
+    // Fallback to localStorage if Firebase not configured
+    try {
+      const stored = localStorage.getItem("debutMessages");
+      messagesCache = stored ? JSON.parse(stored) : [];
+    } catch (e) {
+      messagesCache = [];
+    }
+    renderMessages();
+    return;
+  }
+
+  try {
+    const snapshot = await firebaseDb.ref("messages").once("value");
+    const data = snapshot.val();
+    messagesCache = data ? Object.values(data) : [];
+    renderMessages();
+  } catch (error) {
+    console.error("Error loading messages:", error);
+    // Fallback to localStorage
+    try {
+      const stored = localStorage.getItem("debutMessages");
+      messagesCache = stored ? JSON.parse(stored) : [];
+    } catch (e) {
+      messagesCache = [];
+    }
+    renderMessages();
+  }
+}
+
+function setupFirebaseListener() {
+  if (!firebaseDb) return;
+
+  // Listen for real-time updates
+  messagesListener = firebaseDb.ref("messages").on("value", (snapshot) => {
+    const data = snapshot.val();
+    messagesCache = data ? Object.values(data) : [];
+    renderMessages();
+  });
+}
+
+async function saveMessage(message) {
+  const messageWithId = {
+    ...message,
+    id: Date.now().toString() + Math.random().toString(36).substr(2, 9)
+  };
+
+  if (firebaseDb) {
+    try {
+      await firebaseDb.ref("messages").push(messageWithId);
+      // Message will be added via listener, no need to update cache manually
+      return;
+    } catch (error) {
+      console.error("Error saving to Firebase:", error);
+      // Fallback to localStorage
+    }
+  }
+
+  // Fallback to localStorage
+  try {
+    const stored = localStorage.getItem("debutMessages");
+    const messages = stored ? JSON.parse(stored) : [];
+    messages.push(messageWithId);
+    localStorage.setItem("debutMessages", JSON.stringify(messages));
+    messagesCache = messages;
+  } catch (e) {
+    console.error("Error saving to localStorage:", e);
+  }
+}
+
+function formatMessageDate(date) {
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+}
+
+function renderMessages() {
+  const messagesGrid = document.getElementById("messages-grid");
+  const noMessages = document.getElementById("no-messages");
+  const messageCount = document.getElementById("message-count");
+  
+  if (!messagesGrid) return;
+  
+  const messages = getMessages();
+  
+  if (messageCount) {
+    messageCount.textContent = `${messages.length} ${messages.length === 1 ? "message" : "messages"}`;
+  }
+  
+  if (messages.length === 0) {
+    if (noMessages) noMessages.style.display = "block";
+    messagesGrid.innerHTML = "";
+    return;
+  }
+  
+  if (noMessages) noMessages.style.display = "none";
+  
+  // Sort by date (newest first)
+  const sortedMessages = [...messages].sort((a, b) => new Date(b.date) - new Date(a.date));
+  
+  messagesGrid.innerHTML = sortedMessages.map(msg => `
+    <div class="message-card">
+      <div class="message-header">
+        <span class="message-author">${escapeHtml(msg.name)}</span>
+        <span class="message-date">${formatMessageDate(msg.date)}</span>
+      </div>
+      <div class="message-content">${escapeHtml(msg.message)}</div>
+    </div>
+  `).join("");
+}
+
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function setupMessageBoard() {
+  const form = document.getElementById("message-form");
+  if (!form) return;
+  
+  const status = document.getElementById("message-status");
+  
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+    
+    if (!name || !message) {
+      if (status) {
+        status.textContent = "Please fill in your name and message.";
+        status.className = "status error";
+      }
+      return;
+    }
+    
+    if (status) {
+      status.textContent = "Posting your message...";
+      status.className = "status";
+    }
+    
+    const messageData = {
+      name,
+      email: email || "Not provided",
+      message,
+      date: new Date().toISOString()
+    };
+    
+    try {
+      // Save to Firebase (or localStorage fallback)
+      await saveMessage(messageData);
+      
+      // Also submit to Formspree for backup/email notifications
+      const formData = new FormData();
+      formData.append("_subject", "Message for Brisaise's Debut");
+      formData.append("name", name);
+      formData.append("email", email || "Not provided");
+      formData.append("message", message);
+      formData.append("type", "guestbook_message");
+      
+      try {
+        await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+      } catch (err) {
+        // Silently fail - message is already saved
+        console.log("Formspree submission failed, but message saved");
+      }
+      
+      // Success
+      if (status) {
+        status.textContent = "Message posted! Thank you for your kind words.";
+        status.className = "status success";
+      }
+      
+      form.reset();
+    } catch (error) {
+      if (status) {
+        status.textContent = "Error posting message. Please try again.";
+        status.className = "status error";
+      }
+    }
+    
+    // Clear status after 5 seconds
+    setTimeout(() => {
+      if (status) {
+        status.textContent = "";
+        status.className = "status";
+      }
+    }, 5000);
+  });
+  
+  // Load messages and set up real-time listener
+  loadMessagesFromFirebase();
+  setupFirebaseListener();
+}
+
 function init() {
   renderHero();
   renderEventDetails();
@@ -380,6 +648,7 @@ function init() {
   renderCountdown();
   renderTopBannerCountdown(); // add this
   setupRSVP();
+  setupMessageBoard();
 }
 
 document.addEventListener("DOMContentLoaded", init);
