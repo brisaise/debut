@@ -355,9 +355,7 @@ function setupRSVP() {
   const detailFields = details.querySelectorAll("[data-required-yes]");
 
   function toggleDetails(isAttending) {
-    const showDetails = isAttending === "yes" || isAttending === "no";
-    details.classList.toggle("hidden", !showDetails);
-    detailFields.forEach(input => { input.required = showDetails; });
+    // Notes field is always visible, no need to toggle
   }
 
   attendanceInputs.forEach(input => {
