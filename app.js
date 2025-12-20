@@ -15,6 +15,7 @@
 const FIREBASE_CONFIG = {
   apiKey: "AIzaSyBhGL8yBDuJxXBcPW8RN_dp_Bu-bJg0V1w",
   authDomain: "brisaise-debut.firebaseapp.com",
+  databaseURL: "https://brisaise-debut-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "brisaise-debut",
   storageBucket: "brisaise-debut.firebasestorage.app",
   messagingSenderId: "626320990868",
@@ -26,11 +27,17 @@ const FIREBASE_CONFIG = {
 let firebaseDb = null;
 if (FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey !== "YOUR_API_KEY") {
   try {
-    firebase.initializeApp(FIREBASE_CONFIG);
+    if (!firebase.apps || !firebase.apps.length) {
+      firebase.initializeApp(FIREBASE_CONFIG);
+    }
     firebaseDb = firebase.database();
+    console.log("Firebase initialized successfully");
   } catch (e) {
     console.error("Firebase initialization error:", e);
+    console.log("Falling back to localStorage for messages");
   }
+} else {
+  console.log("Firebase not configured - using localStorage for messages");
 }
 
 const data = {
@@ -444,18 +451,23 @@ async function loadMessagesFromFirebase() {
   }
 
   try {
+    console.log("Loading messages from Firebase...");
     const snapshot = await firebaseDb.ref("messages").once("value");
     const data = snapshot.val();
     messagesCache = data ? Object.values(data) : [];
+    console.log(`Loaded ${messagesCache.length} messages from Firebase`);
     renderMessages();
   } catch (error) {
-    console.error("Error loading messages:", error);
+    console.error("Error loading messages from Firebase:", error);
+    console.error("Error details:", error.message, error.code);
     // Fallback to localStorage
     try {
       const stored = localStorage.getItem("debutMessages");
       messagesCache = stored ? JSON.parse(stored) : [];
+      console.log(`Falling back to localStorage: ${messagesCache.length} messages`);
     } catch (e) {
       messagesCache = [];
+      console.log("No messages in localStorage");
     }
     renderMessages();
   }
@@ -480,11 +492,14 @@ async function saveMessage(message) {
 
   if (firebaseDb) {
     try {
+      console.log("Saving message to Firebase...");
       await firebaseDb.ref("messages").push(messageWithId);
+      console.log("Message saved to Firebase successfully");
       // Message will be added via listener, no need to update cache manually
       return;
     } catch (error) {
       console.error("Error saving to Firebase:", error);
+      console.error("Error details:", error.message, error.code);
       // Fallback to localStorage
     }
   }
