@@ -124,7 +124,7 @@ const data = {
   giftPreferences: {
     note: "Your presence is the greatest gift! However, if you'd like to bring something, here are some ideas:",
     categories: [
-      { id: 1, category: "X-men", icon: "🧬"},
+      { id: 1, category: "X-Men", icon: "🧬"},
       { id: 2, category: "Avengers", icon: "💥"},
       { id: 3, category: "Books", icon: "📚"},
       { id: 4, category: "Jewelry (gold)", icon: "💍"},

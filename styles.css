@@ -117,8 +117,16 @@ img { max-width:100%; display:block; }
 .accordion { display:grid; gap:10px; }
 .accordion-item { border:1px solid var(--border); border-radius:14px; overflow:hidden; background: rgba(255,255,255,0.02); }
 .accordion-header { padding:14px 16px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; }
-.accordion-body { padding:0 16px 14px; color:var(--muted); display:none; }
+.accordion-header > span:first-child { flex:1; padding-right:12px; word-wrap:break-word; }
+.accordion-toggle { flex-shrink:0; font-size:20px; font-weight:700; color:var(--primary); min-width:24px; text-align:center; }
+.accordion-body { padding:0 16px 14px; color:var(--muted); display:none; line-height:1.6; }
 .accordion-item.open .accordion-body { display:block; }
+@media (max-width: 768px) {
+  .accordion-header { padding:12px 14px; flex-wrap:wrap; gap:8px; }
+  .accordion-header > span:first-child { padding-right:8px; font-size:14px; }
+  .accordion-toggle { font-size:18px; }
+  .accordion-body { padding:0 14px 12px; font-size:14px; }
+}
 .footer { padding:50px 0; background: var(--primary); color:#1a0f29; text-align:center; display:grid; gap:24px; }
 .footer-name { font-size:24px; margin:0 0 8px; }
 .footer-name + p { margin:0; }
