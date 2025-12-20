@@ -96,8 +96,8 @@ const data = {
       { id: 9, name: "Ninang Rowena Tongco" }, { id: 10, name: "Tito Dojie Mendoza" },
       { id: 11, name: "Tito Marlone De Guzman" }, { id: 12, name: "Tito Froilan Garcia" },
       { id: 13, name: "Tito Allan Malig" }, { id: 14, name: "Tita Patricia Collins Basay" },
-      { id: 15, name: "Tito Anthony Roberto" }, { id: 16, name: "Kuya Amiel Tongco" },
-      { id: 17, name: "Mama Jobelle Tongco" }, { id: 18, name: "Papa Ronaldo Tongco" }
+      { id: 15, name: "Tito Anthony Roberto" }, { id: 16, name: "Ate Precious Ane Hamionie Sabino" },
+      { id: 17, name: "Kuya Amiel Tongco" }, { id: 18, name: "Papa Ronaldo Tongco" }
     ],
     treasures: [
       { id: 1, name: "Emily Christine Santos" }, { id: 2, name: "Cedie Avelino" },
