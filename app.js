@@ -252,7 +252,6 @@ function renderTraditions() {
             <li class="tradition-item">
               <span class="tradition-num">${i + 1}.</span>
               <span>${p.name}</span>
-              ${p.role ? `<span class="tradition-role">— ${p.role}</span>` : ""}
             </li>
           `).join("")}
         </ol>
