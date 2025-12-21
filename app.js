@@ -114,7 +114,7 @@ const data = {
       { id: 1, name: "Emily Christine Santos" }, { id: 2, name: "Cedie Avelino" },
       { id: 3, name: "Aliyah Ashlee Caber" }, { id: 4, name: "Phranz Francisco" }, 
       { id: 5, name: "Ruiz Franco Gungon" }, { id: 6, name: "Shane Salvador" }, 
-      { id: 7, name: "Ethaniele Leo Manaloto" }, { id: 8, name: "Alvia Dela Cruz" }, 
+      { id: 7, name: "Ethaniele Leo Manaloto" }, { id: 8, name: "Cxyha Anne Chico" }, 
       { id: 9, name: "Achilla Berniz Darlucio" }, { id: 10, name: "Wynona Ivee Mendoza" }, 
       { id: 11, name: "Althea Malig" }, { id: 12, name: "Renz Peter Sambilay" }, 
       { id: 13, name: "Crizlyn Sambilay" }, { id: 14, name: "Khayce Ezra Sambilay" }, 
