@@ -81,7 +81,7 @@ const data = {
       { id: 10, name: "Tita Cecilia De Guzman"},
       { id: 11, name: "Tita Norlyn Haro"},
       { id: 12, name: "Tita Editha Buenaventura"},
-      { id: 13, name: "Ate Ruby Aquino"},
+      { id: 13, name: "Tita Ruby Aquino"},
       { id: 14, name: "Ate Cesareen Sadile"},
       { id: 15, name: "Miss Kristine Jamie Austria"},
       { id: 16, name: "Ma'am Ma. Kathleen Paraguya"},
