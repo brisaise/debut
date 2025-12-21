@@ -462,7 +462,7 @@ function setupRSVP() {
 
       // Success
       if (attending === "yes") {
-        status.textContent = `Thank you, ${name}! We'll follow up via ${contact}.`;
+        status.textContent = `Thank you, ${name}! See you at the event.`;
       } else {
         status.textContent = `Thanks, ${name}. We'll miss you at the celebration.`;
       }
