@@ -91,11 +91,11 @@ const data = {
     bills: [
       { id: 1, name: "Tito Rodelio De Jesus" }, { id: 2, name: "Tito Joel De Guzman" },
       { id: 3, name: "Tita Ronavie Sambilay" }, { id: 4, name: "Tita Ladylyn Sambilay" },
-      { id: 5, name: "Tita Maricris Kaye Sambilay" }, { id: 6, name: "Tito Jomar Neones"},
-      { id: 7, name: "Ninong Warren Basilio" }, { id: 8, name: "Ninong Alvin Tongco" },
-      { id: 9, name: "Ninang Rowena Tongco" }, { id: 10, name: "Tito Dojie Mendoza" },
-      { id: 11, name: "Tito Marlone De Guzman" }, { id: 12, name: "Tito Froilan Garcia" },
-      { id: 13, name: "Tito Allan Malig" }, { id: 14, name: "Tita Patricia Collins Basay" },
+      { id: 5, name: "Tita Maricris Kaye Sambilay" }, { id: 6, name: "Ninong Warren Basilio" },
+      { id: 7, name: "Ninong Alvin Tongco" }, { id: 8, name: "Ninang Rowena Tongco" }, 
+      { id: 9, name: "Tito Dojie Mendoza" }, { id: 10, name: "Tito Marlone De Guzman" }, 
+      { id: 11, name: "Tito Froilan Garcia" }, { id: 12, name: "Tito Allan Malig" }, 
+      { id: 13, name: "Tito Jomar Neones"},{ id: 14, name: "Tita Patricia Collins Basay" },
       { id: 15, name: "Tito Anthony Roberto" }, { id: 16, name: "Ate Precious Ane Hamionie Sabino" },
       { id: 17, name: "Kuya Amiel Tongco" }, { id: 18, name: "Papa Ronaldo Tongco" }
     ],
