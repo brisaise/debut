@@ -91,7 +91,7 @@ const data = {
     bills: [
       { id: 1, name: "Tito Rodelio De Jesus" }, { id: 2, name: "Tito Joel De Guzman" },
       { id: 3, name: "Tita Ronavie Sambilay" }, { id: 4, name: "Tita Ladylyn Sambilay" },
-      { id: 5, name: "Tita Maricris Kaye Sambilay" }, { id: 6, name: "Lolo Fernando Tongco"},
+      { id: 5, name: "Tita Maricris Kaye Sambilay" }, { id: 6, name: "Tito Jomar Neones"},
       { id: 7, name: "Ninong Warren Basilio" }, { id: 8, name: "Ninong Alvin Tongco" },
       { id: 9, name: "Ninang Rowena Tongco" }, { id: 10, name: "Tito Dojie Mendoza" },
       { id: 11, name: "Tito Marlone De Guzman" }, { id: 12, name: "Tito Froilan Garcia" },
