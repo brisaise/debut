@@ -32,14 +32,25 @@ if (FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey !== "YOUR_API_KEY") {
     }
     // Explicitly use the database URL from config
     firebaseDb = firebase.database();
-    console.log("Firebase initialized successfully");
-    console.log("Database URL:", FIREBASE_CONFIG.databaseURL);
+    console.log("✅ Firebase initialized successfully");
+    console.log("📊 Database URL:", FIREBASE_CONFIG.databaseURL);
+    console.log("🔑 Project ID:", FIREBASE_CONFIG.projectId);
+    
+    // Test Firebase connection
+    firebaseDb.ref(".info/connected").on("value", (snapshot) => {
+      if (snapshot.val() === true) {
+        console.log("✅ Connected to Firebase Realtime Database");
+      } else {
+        console.warn("⚠️ Not connected to Firebase Realtime Database");
+      }
+    });
   } catch (e) {
-    console.error("Firebase initialization error:", e);
-    console.log("Falling back to localStorage for messages");
+    console.error("❌ Firebase initialization error:", e);
+    console.error("Error details:", e.message, e.code);
+    console.log("Falling back to localStorage for messages and RSVPs");
   }
 } else {
-  console.log("Firebase not configured - using localStorage for messages");
+  console.warn("⚠️ Firebase not configured - using localStorage for messages and RSVPs");
 }
 
 const data = {
@@ -153,7 +164,6 @@ const data = {
   ]
 };
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrbnrbkv";
 
 function renderTopBannerCountdown() {
   const timerEl = document.getElementById("top-banner-timer");
@@ -345,6 +355,51 @@ function renderFooter() {
   }
 }
 
+// RSVP storage - uses Firebase if available, falls back to localStorage
+let rsvpsCache = [];
+let rsvpsListener = null;
+
+async function saveRSVP(rsvp) {
+  const rsvpWithId = {
+    ...rsvp,
+    id: Date.now().toString() + Math.random().toString(36).substr(2, 9)
+  };
+
+  if (firebaseDb) {
+    try {
+      console.log("Saving RSVP to Firebase...");
+      console.log("RSVP data:", rsvpWithId);
+      const ref = firebaseDb.ref("rsvps");
+      await ref.push(rsvpWithId);
+      console.log("✅ RSVP saved to Firebase successfully at path: rsvps/");
+      return;
+    } catch (error) {
+      if (error.code === "PERMISSION_DENIED") {
+        console.warn("⚠️ Permission denied by Firebase. Please update your Realtime Database rules to allow writes to 'rsvps'.");
+        console.warn("Falling back to localStorage...");
+      } else {
+        console.error("Error saving RSVP to Firebase:", error);
+        console.error("Error details:", error.message, error.code);
+      }
+      // Fallback to localStorage
+    }
+  } else {
+    console.warn("Firebase not initialized - using localStorage fallback");
+  }
+
+  // Fallback to localStorage
+  try {
+    const stored = localStorage.getItem("debutRSVPs");
+    const rsvps = stored ? JSON.parse(stored) : [];
+    rsvps.push(rsvpWithId);
+    localStorage.setItem("debutRSVPs", JSON.stringify(rsvps));
+    rsvpsCache = rsvps;
+    console.log("RSVP saved to localStorage (Firebase not available)");
+  } catch (e) {
+    console.error("Error saving RSVP to localStorage:", e);
+  }
+}
+
 function setupRSVP() {
   const form = document.getElementById("rsvp-form");
   if (!form) return;
@@ -366,7 +421,7 @@ function setupRSVP() {
     });
   });
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const attending = form.attending.value;
 
@@ -382,59 +437,43 @@ function setupRSVP() {
       return;
     }
 
-    if (attending === "yes") {
-      const guests = form.guests?.value || "1";
-      const dietary = form.dietary?.value?.trim() || "";
-
-      if (!guests || Number(guests) < 1) {
-        status.textContent = "Please tell us how many are coming so we can reserve seats.";
-        status.classList.add("error");
-        return;
-      }
-
-      status.textContent = `Thank you, ${name}! We've reserved ${guests} seat(s) for you. We'll follow up via ${contact}.${dietary ? ` Dietary notes: ${dietary}.` : ""}`;
-      status.classList.add("success");
-    } else if (attending === "no") {
-      status.textContent = `Thanks, ${name}. We'll miss you at the celebration.`;
-      status.classList.add("success");
-    } else {
+    if (!attending) {
       status.textContent = "Please select if you are attending.";
       status.classList.add("error");
       return;
     }
 
-    // Prevent sending if placeholder endpoint is still present
-    if (FORMSPREE_ENDPOINT.includes("yourFormId")) {
-      status.textContent = "Formspree endpoint is not set yet. Replace it with your form ID.";
-      status.classList.add("error");
-      return;
-    }
-
-    const formData = new FormData(form);
-    formData.set("attending", attending);
-
     status.textContent = "Sending your RSVP…";
     status.className = "status";
 
-    fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      body: formData,
-      headers: { Accept: "application/json" }
-    }).then(async (resp) => {
-      if (resp.ok) {
-        status.textContent = "RSVP received! Thank you.";
-        status.classList.add("success");
-        form.reset();
-        toggleDetails("no");
+    const notes = form.notes?.value?.trim() || "";
+
+    const rsvpData = {
+      attending,
+      name,
+      contact,
+      notes,
+      date: new Date().toISOString()
+    };
+
+    try {
+      // Save to Firebase (or localStorage fallback)
+      await saveRSVP(rsvpData);
+
+      // Success
+      if (attending === "yes") {
+        status.textContent = `Thank you, ${name}! We'll follow up via ${contact}.`;
       } else {
-        const msg = (await resp.json().catch(() => ({}))).errors?.[0]?.message;
-        status.textContent = msg || "There was a problem sending your RSVP. Please try again.";
-        status.classList.add("error");
+        status.textContent = `Thanks, ${name}. We'll miss you at the celebration.`;
       }
-    }).catch(() => {
-      status.textContent = "Network error. Please try again.";
+      status.classList.add("success");
+      form.reset();
+      toggleDetails("no");
+    } catch (error) {
+      console.error("Error saving RSVP:", error);
+      status.textContent = "Error saving RSVP. Please try again.";
       status.classList.add("error");
-    });
+    }
   });
 }
 
@@ -529,12 +568,17 @@ async function saveMessage(message) {
     try {
       console.log("Saving message to Firebase...");
       await firebaseDb.ref("messages").push(messageWithId);
-      console.log("Message saved to Firebase successfully");
+      console.log("✅ Message saved to Firebase successfully");
       // Message will be added via listener, no need to update cache manually
       return;
     } catch (error) {
-      console.error("Error saving to Firebase:", error);
-      console.error("Error details:", error.message, error.code);
+      if (error.code === "PERMISSION_DENIED") {
+        console.warn("⚠️ Permission denied by Firebase. Please update your Realtime Database rules to allow writes to 'messages'.");
+        console.warn("Falling back to localStorage...");
+      } else {
+        console.error("Error saving to Firebase:", error);
+        console.error("Error details:", error.message, error.code);
+      }
       // Fallback to localStorage
     }
   }
@@ -638,25 +682,6 @@ function setupMessageBoard() {
     try {
       // Save to Firebase (or localStorage fallback)
       await saveMessage(messageData);
-      
-      // Also submit to Formspree for backup/email notifications
-      const formData = new FormData();
-      formData.append("_subject", "Message for Brisaise's Debut");
-      formData.append("name", name);
-      formData.append("email", email || "Not provided");
-      formData.append("message", message);
-      formData.append("type", "guestbook_message");
-      
-      try {
-        await fetch(FORMSPREE_ENDPOINT, {
-          method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" }
-        });
-      } catch (err) {
-        // Silently fail - message is already saved
-        console.log("Formspree submission failed, but message saved");
-      }
       
       // Success
       if (status) {
