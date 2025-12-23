@@ -138,11 +138,11 @@ const data = {
       { id: 1, category: "X-Men", icon: "🧬"},
       { id: 2, category: "Avengers", icon: "💥"},
       { id: 3, category: "Books", icon: "📚"},
-      { id: 4, category: "Jewelry (gold)", icon: "💍"},
+      { id: 4, category: "Jewelry (Gold)", icon: "💍"},
       { id: 5, category: "Detective Conan", icon: "🔎"},
       { id: 6, category: "Pride & Prejudice", icon: "💌"},
       { id: 7, category: "The Little Prince", icon: "👑"},
-      { id: 8, category: "LEGO", icon: "🧱"},
+      { id: 8, category: "Teen Titans", icon: "⚡"},
       { id: 9, category: "Seventeen", icon: "💎"},
       { id: 10, category: "Kubo (Popmart)", icon: "✨"}
     ],
