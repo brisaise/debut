@@ -73,7 +73,7 @@ const data = {
       { id: 3, name: "Tito Carlo Sambilay" }, { id: 4, name: "Tito Crizaldo Sambilay" }, 
       { id: 5, name: "Tito Celerino Sambilay Jr." }, { id: 6, name: "Kuya John Jose De Guzman" }, 
       { id: 7, name: "Kuya Christian Jose De Guzman" }, { id: 8, name: "Kuya Jose Miguel De Guzman" }, 
-      { id: 9, name: "Rodde Maxel De Jesus" }, { id: 10, name: "Kuya Allan Christopher Malig"},
+      { id: 9, name: "Rodde Maxel De Jesus" }, { id: 10, name: "Kuya Marq Agassi De Guzman"},
       { id: 11, name: "Kuya Rheyan Miguel Prim" }, { id: 12, name: "Kuya Markuz Ethan Gungon" },
       { id: 13, name: "Sir Christian Cedrick Publico" }, { id: 14, name: "Albertson Mendiola" },
       { id: 15, name: "Keith Aldridge Santos" }, { id: 16, name: "Daniel Patrick Santos" }, 
